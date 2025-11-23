@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JIBB Design | Portafolio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  (function() {
+    emailjs.init("TU_PUBLIC_KEY"); // <- reemplaza aquí
+  })();
+
+  const form = document.querySelector(".contact-form");
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const phone = document.getElementById("phone");
+
+    // Validación manual adicional
+    if (!phone.checkValidity()) {
+      alert("Por favor ingresa un número de celular válido con prefijo.");
+      phone.focus();
+      return;
+    }
+
+    emailjs.send("TU_SERVICE_ID", "TU_TEMPLATE_ID", {
+      nombre: document.getElementById("nombre").value,
+      email: document.getElementById("email").value,
+      phone: document.getElementById("phone").value,
+      mensaje: document.getElementById("mensaje").value
+    })
+    .then(() => {
+      alert("¡Mensaje enviado con éxito!");
+      form.reset();
+    })
+    .catch((error) => {
+      alert("Hubo un error al enviar el mensaje. Intenta nuevamente.");
+      console.error(error);
+    });
+  });
+</script>
+
+<body>
+
+  <!-- MENU -->
+  <nav>
+    <a href="Branding.html">Diseño</a>
+    <a href="Ilustraciones.html">Ilustraciones</a>
+    <a href="MockUp.html">MockUp</a>
+    <!--<a href="#data">Análisis de Datos</a>-->
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <!-- HERO con imagen de fondo y figuras decorativas -->
+  <section class="hero">
+    <!-- figuras decorativas (puedes usar SVG o PNG) -->
+    <img src="JIBB Designer\ImagenesIconos\compu.png" alt="" class="shape shape--1" aria-hidden="true">
+    <img src="JIBB Designer\ImagenesIconos\Diseñando02.png" alt="" class="shape shape--2" aria-hidden="true">
+    <img src="JIBB Designer\ImagenesIconos\Diseño.png" alt="" class="shape shape--2" aria-hidden="true">
+
+    <!-- panel central translúcido -->
+    <div class="panel">
+      <h1>JIBB Designer</h1>
+      <p class="subtitle">Elige una categoría</p>
+
+      <div class="icons-grid">
+        <a class="icon" href="Branding.html">
+          <img src="JIBB Designer\ImagenesIconos\compu.png" alt="" />
+          <span>Branding</span>
+        </a>
+        <a class="icon" href="Ilustraciones.html">
+          <img src="JIBB Designer\ImagenesIconos\ilustrator.avif" alt="" />
+          <span>Ilustración</span>
+        </a>
+        <a class="icon" href="MockUp.html">
+          <img src="JIBB Designer\ImagenesIconos\MackUP.jpeg" alt="" />
+          <span>Mock Up</span>
+        </a>
+        <!-- añade más iconos según necesites -->
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN DISEÑO (ejemplo de cards con background-image) -->
+  <section id="diseno">
+    <h2>Lo Más Popular</h2>
+    <div class="grid">
+      <!-- Usando background-image inline (recomendado) -->
+      <div class="card">
+        <img class="bg-as-image" src="JIBB Designer\Logos\JIBB Fondo Obscuro.png" alt=""> 
+        <div class="card-content">
+          <h3>Logos</h3>
+          <p>
+            En JIBB_Designer desarrollamos logotipos estratégicos y personalizados que representan de forma clara la identidad de tu marca. 
+            Trabajamos con procesos profesionales de análisis, conceptualización y diseño, asegurando resultados coherentes, funcionales y visualmente sólidos.
+          </p>
+        </div>
+      </div>
+
+      <!-- Alternativa: usar <img class="bg-as-image"> si prefieres tener <img> en el HTML -->
+      <div class="card">
+        <img class="bg-as-image" src="JIBB Designer\Diseños\Mock Ups\TazaMockUp.png" alt="">
+        <div class="card-content">
+          <h3>MockUp - Tazas</h3>
+          <p>
+            En JIBB Designer diseñamos tu logotipo y lo plasmamos en gorras mediante mockups profesionales, para que visualices exactamente cómo lucirá tu marca en un producto real. 
+            Presentación clara, elegante y lista para mostrar a tu equipo o clientes.
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="bg-as-image" src="JIBB Designer\Diseños\Mock Ups\MockUp_Pikachu.jpg" alt="">
+        <div class="card-content">
+          <h3>MoxkUp - Camisetas</h3>
+          <p>
+            ¿Quieres ver cómo se vería tu logo en una camiseta?
+            En JIBB Designer lo creamos y lo plasmamos en mockups profesionales para 
+            que visualices el resultado final antes de producirlo. 
+            ¡Tu marca con estilo!
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section id="contacto" class="contact-section">
+  <h2>Contacto</h2>
+
+  <form class="contact-form" action="https://formsubmit.co/jesleybuitron@gmail.com" method="POST">
+
+    <!-- nombre -->
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+    </div>
+
+    <!-- correo -->
+    <div class="form-group">
+      <label for="email">Correo</label>
+      <input type="email" id="email" name="email" placeholder="tunombre@email.com" required>
+    </div>
+
+    <!-- celular -->
+    <div class="form-group">
+      <label for="phone">Número Celular</label>
+      <input 
+        type="tel"
+        id="phone"
+        name="phone"
+        placeholder="+593 98 765 4321"
+        pattern="^\+593\s?[0-9]{2}\s?[0-9]{3}\s?[0-9]{3}$"
+        required
+        oninvalid="this.setCustomValidity('Formato inválido. Usa +593 98 765 4321')"
+        oninput="this.setCustomValidity('')"
+      >
+      <small class="error-text">Ejemplo válido: +593 98 765 4321</small>
+    </div>
+
+    <!-- mensaje -->
+    <div class="form-group">
+      <label for="mensaje">Mensaje</label>
+      <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+    </div>
+
+    <!-- hidden settings -->
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="https://portafolio.github.io/success.html">
+    <input type="hidden" name="_subject" value="Nuevo mensaje desde tu portafolio JIBB Design">
+
+    <button type="submit" class="btn-send">Enviar</button>
+  </form>
+
+  <!-- FOOTER -->
+  <footer id="contacto">
+    <p>© 2025 JIBB Design. Todos los derechos reservados.</p>
+  </footer>
+</script>
+</body>
+</html>

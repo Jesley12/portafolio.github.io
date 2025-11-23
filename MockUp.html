@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>JIBB Design | Mock UP</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <nav>
+    <a href="Pagina.html">Inicio</a>
+    <a href="Ilustraciones.html">Ilustraciones</a>
+    <a href="MockUp.html">MockUp</a>
+    <!--<a href="#data">Análisis de Datos</a>-->
+    <a href="#contacto">Contacto</a>
+
+  </nav>
+
+  <header class="hero i" aria-labelledby="branding-title">
+    <img src="JIBB Designer\Logos\JIBB Fondo Claro.png" alt="" class="shape shape--1" aria-hidden="true">
+    <img src="JIBB Designer\ImagenesIconos\Diseñando02.png" alt="" class="shape shape--2" aria-hidden="true">
+
+    <div class="panel panel--hero">
+      <h1>Mock Ups</h1>
+      <p class="subtitle">Aqui estan todas los MockUps creados por JIBB Designer</p>
+    </div>
+  </header>
+
+  <main>
+    <section id="posts">
+      <h2>Proyectos - MockUps</h2>
+      <div class="grid">
+
+        <!-- Cada card tiene data-images con lista separada por comas de imágenes del proyecto -->
+        <article class="card post-card" data-images="JIBB Designer\Diseños\Mock Ups\Gorra Impor Repuestos.jpg">
+          <img class="card-thumb" src="JIBB Designer\Diseños\Mock Ups\Gorra Impor Repuestos.jpg" alt="Post 1 mini">
+          <div class="card-content">
+            <h3>Gorras</h3>
+            <p class="excerpt">
+                Personalizamos gorras con el logotipo de tu empresa para reforzar la identidad de tu marca. 
+                Diseños de alta calidad, acabados profesionales 
+                y una presentación que transmite confianza y estilo en cada detalle.
+            </p>
+            <div class="card-actions">
+              <button class="open-gallery-btn" type="button">Ver Mock Up</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card post-card" data-images="JIBB Designer\Diseños\Mock Ups\MockUp_Pikachu.jpg">
+          <img class="card-thumb" src="JIBB Designer\Diseños\Mock Ups\MockUp_Pikachu.jpg" alt="Post 2 mini">
+          <div class="card-content">
+            <h3>Camisetas</h3>
+            <p class="excerpt">
+                Diseñamos tu logotipo y lo presentamos en camisetas con mockups de alta calidad, 
+                para que puedas ver cómo se integra tu imagen corporativa en una prenda real. 
+                Un proceso profesional, elegante y visual que eleva el valor de tu marca.
+            </p>
+            <div class="card-actions">
+              <button class="open-gallery-btn" type="button">Ver Mock Ups</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card post-card" data-images="JIBB Designer\Diseños\Mock Ups\Taza.jpg">
+          <img class="card-thumb" src="JIBB Designer\Diseños\Mock Ups\Taza.jpg" alt="Post 3 mini">
+          <div class="card-content">
+            <h3>Tazas</h3>
+            <p class="excerpt">
+                Creamos tu logotipo y lo aplicamos en gorras con mockups de alta calidad, 
+                mostrando cada detalle con un acabado moderno y profesional. 
+                Así puedes ver cómo tu marca cobra vida con un estilo auténtico y corporativo.
+            </p>
+            <div class="card-actions">
+              <button class="open-gallery-btn" type="button">Ver Mock Ups</button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal / Lightbox -->
+  <div id="gallery-modal" class="gallery-modal" aria-hidden="true" role="dialog" aria-label="Galería de posts">
+    <div class="gallery-backdrop"></div>
+    <div class="gallery-panel" role="document">
+      <button class="gallery-close" aria-label="Cerrar galería">&times;</button>
+      <div class="gallery-inner">
+        <button class="gallery-prev" aria-label="Anterior">&#10094;</button>
+        <div class="gallery-view">
+          <img src="" alt="" class="gallery-image" />
+          <p class="gallery-caption"></p>
+        </div>
+        <button class="gallery-next" aria-label="Siguiente">&#10095;</button>
+      </div>
+      <div class="gallery-thumbs" aria-hidden="false"></div>
+    </div>
+  </div>
+
+  <section id="contacto" class="contact-section">
+  <h2>Contacto</h2>
+
+  <form class="contact-form" action="https://formsubmit.co/jesleybuitron@gmail.com" method="POST">
+
+    <!-- nombre -->
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+    </div>
+
+    <!-- correo -->
+    <div class="form-group">
+      <label for="email">Correo</label>
+      <input type="email" id="email" name="email" placeholder="tunombre@email.com" required>
+    </div>
+
+    <!-- celular -->
+    <div class="form-group">
+      <label for="phone">Número Celular</label>
+      <input 
+        type="tel"
+        id="phone"
+        name="phone"
+        placeholder="+593 98 765 4321"
+        pattern="^\+593\s?[0-9]{2}\s?[0-9]{3}\s?[0-9]{3}$"
+        required
+        oninvalid="this.setCustomValidity('Formato inválido. Usa +593 98 765 4321')"
+        oninput="this.setCustomValidity('')"
+      >
+      <small class="error-text">Ejemplo válido: +593 98 765 4321</small>
+    </div>
+
+    <!-- mensaje -->
+    <div class="form-group">
+      <label for="mensaje">Mensaje</label>
+      <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+    </div>
+
+    <!-- hidden settings -->
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="https://portafolio.github.io/success.html">
+    <input type="hidden" name="_subject" value="Nuevo mensaje desde tu portafolio JIBB Design">
+
+    <button type="submit" class="btn-send">Enviar</button>
+  </form>
+
+
+  <footer id="contacto">
+    <p>© 2025 JIBB Design. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    // Galería: abre a partir de data-images, crea thumbs y permite navegación
+    (function () {
+      const modal = document.getElementById('gallery-modal');
+      const backdrop = modal.querySelector('.gallery-backdrop');
+      const panel = modal.querySelector('.gallery-panel');
+      const imgEl = modal.querySelector('.gallery-image');
+      const captionEl = modal.querySelector('.gallery-caption');
+      const thumbsEl = modal.querySelector('.gallery-thumbs');
+      const prevBtn = modal.querySelector('.gallery-prev');
+      const nextBtn = modal.querySelector('.gallery-next');
+      const closeBtn = modal.querySelector('.gallery-close');
+
+      let currentGallery = [];
+      let currentIndex = 0;
+
+      function openGallery(images, start = 0) {
+        currentGallery = images.slice();
+        currentIndex = start;
+        renderImage();
+        renderThumbs();
+        modal.setAttribute('aria-hidden', 'false');
+        modal.classList.add('visible');
+        document.body.style.overflow = 'hidden';
+        // focus close button for accessibility
+        closeBtn.focus();
+      }
+
+      function closeGallery() {
+        modal.setAttribute('aria-hidden', 'true');
+        modal.classList.remove('visible');
+        document.body.style.overflow = '';
+      }
+
+      function renderImage() {
+        const src = currentGallery[currentIndex];
+        imgEl.src = src;
+        imgEl.alt = `Post ${currentIndex + 1} de ${currentGallery.length}`;
+        captionEl.textContent = `${currentIndex + 1} / ${currentGallery.length}`;
+        updateActiveThumb();
+      }
+
+      function prevImage() {
+        if (currentGallery.length === 0) return;
+        currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+        renderImage();
+      }
+      function nextImage() {
+        if (currentGallery.length === 0) return;
+        currentIndex = (currentIndex + 1) % currentGallery.length;
+        renderImage();
+      }
+
+      function renderThumbs() {
+        thumbsEl.innerHTML = '';
+        currentGallery.forEach((src, i) => {
+          const t = document.createElement('img');
+          t.src = src;
+          t.alt = `Miniatura ${i + 1}`;
+          t.className = 'thumb';
+          t.dataset.index = i;
+          t.addEventListener('click', () => {
+            currentIndex = i;
+            renderImage();
+          });
+          thumbsEl.appendChild(t);
+        });
+        updateActiveThumb();
+      }
+
+      function updateActiveThumb() {
+        const thumbs = thumbsEl.querySelectorAll('.thumb');
+        thumbs.forEach(t => t.classList.remove('active'));
+        const active = thumbsEl.querySelector(`.thumb[data-index="${currentIndex}"]`);
+        if (active) active.classList.add('active');
+      }
+
+      // Buttons / events
+      prevBtn.addEventListener('click', prevImage);
+      nextBtn.addEventListener('click', nextImage);
+      closeBtn.addEventListener('click', closeGallery);
+      backdrop.addEventListener('click', closeGallery);
+
+      // Keyboard
+      document.addEventListener('keydown', function (e) {
+        if (modal.classList.contains('visible')) {
+          if (e.key === 'ArrowLeft') prevImage();
+          if (e.key === 'ArrowRight') nextImage();
+          if (e.key === 'Escape') closeGallery();
+        }
+      });
+
+      // Open gallery from cards
+      document.querySelectorAll('.post-card').forEach(card => {
+        const btn = card.querySelector('.open-gallery-btn');
+        const imagesAttr = card.dataset.images || '';
+        const imageList = imagesAttr.split(',').map(s => s.trim()).filter(Boolean);
+        btn.addEventListener('click', () => openGallery(imageList, 0));
+        // allow clicking whole card
+        card.addEventListener('click', (e) => {
+          // avoid double-trigger if click was on button (already handled)
+          if (e.target.closest('.open-gallery-btn')) return;
+          openGallery(imageList, 0);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
